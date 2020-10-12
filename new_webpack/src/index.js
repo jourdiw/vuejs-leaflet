@@ -1,7 +1,0 @@
-// import Vue from 'vue'
-// import Vuetify from 'vuetify'
-import {} from './mcaddress.js'
-import {} from './mcaddressform.js'
-import {} from './app.js'
-import './main.css'
-// import './node_modules/vuetify/dist/vuetify.min.css'
