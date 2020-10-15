@@ -33,6 +33,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Configuration passwords
+config.py
+
 # Distribution / packaging
 .Python
 env/
