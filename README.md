@@ -1,0 +1,1 @@
+This is a project that combines an existing VueJS project with a Django backend.
