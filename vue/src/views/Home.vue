@@ -1,32 +1,54 @@
 <template>
   <v-container>
-    <div id="address-to">
-      <h1>TO</h1>
-      <Address v-bind:address="to" @select="updateAddressToEdit"></Address
-      ><br />
-    </div>
-    <div id="address-from">
-      <h1>FROM</h1>
-      <Address :address="from" @select="updateAddressToEdit"></Address><br />
-    </div>
-    <AddressForm
-      v-if="addressToEdit"
-      v-bind:address="addressToEdit"
-    ></AddressForm>
-    <div>
-      <h2>A tale of loops...</h2>
-      <li>{{ from.city.name }}: {{ from.city.value }}</li>
-      <form v-for="attr in from">
-        <div v-if="attr.value === ''">
-          <input v-model="attr.value" placeholder="yello" />
-          <p>The attribute {{ attr.name }} is now: {{ attr.value }}</p>
-        </div>
-      </form>
-    </div>
-    <!-- </div> -->
     <div id="leafletMap">
       <Map></Map>
     </div>
+    <v-row>
+      <v-col>
+        <v-card>
+          <div id="address-to" class="address-card">
+            <v-card-title>
+              <v-icon>fas fa-map-marker</v-icon>
+              <span>TO</span>
+            </v-card-title>
+            <v-card-text>
+              <Address v-bind:address="to" @select="updateAddressToEdit"></Address>
+            </v-card-text>
+          </div>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card>
+          <div id="address-from" class="address-card">
+            <v-card-title>
+              <v-icon>fas fa-map-marker</v-icon>
+              <span>FROM</span>
+            </v-card-title>
+            <v-card-text>
+              <Address :address="from" @select="updateAddressToEdit"></Address>
+            </v-card-text>
+          </div>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card v-if="!addressToEdit" class="address-card">
+          <v-card-title>EDIT</v-card-title>
+          <v-card-text>
+            <div class="address">
+              <ul>
+                <li>Road:</li>
+                <li>Zip code:</li>
+                <li>City:</li>
+                <li>Complement:</li>
+                <li>Country:</li>
+                <li>State:</li>
+              </ul>
+            </div>
+          </v-card-text>
+        </v-card>
+        <AddressForm v-if="addressToEdit" v-bind:address="addressToEdit"></AddressForm>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -37,6 +59,7 @@ import Map from "../components/Leaf";
 import axios from "axios";
 
 var from = {
+  addressName: "from",
   road: {
     name: "Road",
     value: "Abbey Rd"
@@ -69,6 +92,7 @@ var from = {
 };
 
 var address2 = {
+  addressName: "to",
   road: {
     name: "Road",
     value: "Partridge St"
@@ -87,7 +111,7 @@ var address2 = {
   },
   country: {
     name: "Country",
-    value: "England"
+    value: "england"
   },
   state: {
     name: "State",

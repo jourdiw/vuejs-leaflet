@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <div id="mapid" style="height: 400px;width: 600px;"></div> -->
     <div id="mapid"></div>
   </div>
 </template>
@@ -35,10 +34,5 @@ export default {
 };
 </script>
 <style>
-/* TODO: Activate this part of the vue 
-         and remove the inline */
-#mapid {
-  height: 400px;
-  width: 600px;
-}
+/* TODO: Add the css for this component from index.html */
 </style>

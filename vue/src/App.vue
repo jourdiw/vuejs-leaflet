@@ -3,50 +3,37 @@
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Hamster Wheel"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://www.shareicon.net/data/128x128/2016/08/18/815504_hamster_512x512.png"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
       </div>
-      <div id="nav" style="color: white;">
-        <router-link to="/"><span class="mr-2">Home</span></router-link>
-        <span class="mr-2"> | </span>
-        <router-link to="/about"><span class="mr-2">About</span></router-link>
+      <div id="nav">
+        <router-link to="/">
+          <span class="h6 font-weight-bold">Home</span>
+        </router-link>
+        <span id="menuSpacer" class="h6 font-weight-bold">|</span>
+        <router-link to="/about">
+          <span class="h6 font-weight-bold">About</span>
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn v-if="!authenticated" @click="login()">
+        <span class="mr-2" style="color: white;">Log In</span>
       </v-btn>
-      <v-btn v-if="!authenticated" @click="login()"
-        ><span class="mr-2" style="color: white;">Log In</span></v-btn
-      >
 
-      <v-btn v-if="authenticated" @click="privateMessage()"
-        ><span class="mr-2" style="color: white;">Call Private</span></v-btn
-      >
+      <v-btn v-if="authenticated" @click="privateMessage()">
+        <span class="mr-2" style="color: white;">Call Private</span>
+      </v-btn>
 
       <v-btn v-if="authenticated" @click="logout()">
-        <span class="mr-2" style="color: white;">Log Out</span></v-btn
-      >
+        <span class="mr-2" style="color: white;">Log Out</span>
+      </v-btn>
       <br />
     </v-app-bar>
 

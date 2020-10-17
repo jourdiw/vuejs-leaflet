@@ -41,7 +41,7 @@ export default class AuthService {
         // console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
-      //   router.replace("/");
+      router.replace("/");
     });
   }
 

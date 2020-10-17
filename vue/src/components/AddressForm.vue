@@ -1,14 +1,38 @@
 <template>
-  <div id="addressform" class="mc-address-form">
-    <h2>Edit Form:</h2>
-    {{ address.road.name }}: <input v-model="address.road.value" /><br />
-    {{ address.zipCode.name }}: <input v-model="address.zipCode.value" /><br />
-    {{ address.city.name }}: <input v-model="address.city.value" /><br />
-    {{ address.complement.name }}:
-    <input v-model="address.complement.value" /><br />
-    {{ address.country.name }}: <input v-model="address.country.value" /><br />
-    {{ address.state.name }}: <input v-model="address.state.value" /><br />
-  </div>
+  <v-card>
+    <v-card-title>EDIT - {{ address.addressName | capitalize }}</v-card-title>
+    <v-card-text>
+      <div class="address">
+        <ul>
+          <li>
+            {{ address.road.name }}:
+            <input v-model="address.road.value" />
+          </li>
+          <li>
+            {{ address.zipCode.name }}:
+            <input v-model="address.zipCode.value" />
+          </li>
+          <li>
+            {{ address.city.name }}:
+            <input v-model="address.city.value" />
+          </li>
+          <li>
+            {{ address.complement.name }}:
+            <input v-model="address.complement.value" />
+          </li>
+          <li>
+            {{ address.country.name }}:
+            <input v-model="address.country.value" />
+          </li>
+          <li>
+            {{ address.state.name }}:
+            <input v-model="address.state.value" />
+          </li>
+        </ul>
+        <v-btn v-on:click="select">SUBMIT</v-btn>
+      </div>
+    </v-card-text>
+  </v-card>
 </template>
 <script>
 export default {
@@ -21,6 +45,11 @@ export default {
       if (!value) return "";
       value = value.toString();
       return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  },
+  methods: {
+    select() {
+      console.log("Submitting address");
     }
   }
 };
