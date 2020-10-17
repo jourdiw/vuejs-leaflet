@@ -1,80 +1,111 @@
 <template>
-<div>
-  <div>
-      <button
-        class="btn btn-primary btn-margin"
-        v-if="!authenticated"
-        @click="login()">
-        Log In
-      </button>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
 
-      <button
-        class="btn btn-primary btn-margin"
-        v-if="authenticated"
-        @click="privateMessage()">
-        Call Private
-      </button>
-
-      <button
-        class="btn btn-primary btn-margin"
-        v-if="authenticated"
-        @click="logout()">
-        Log Out
-      </button>
-      {{ message }}
-      <br>
-    </div>
-    <div id="app">
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
       </div>
-      <router-view />
-    </div>
-</div>
-</template>
-<script>
-import AuthService from './auth/AuthService'
-import axios from 'axios'
+      <div id="nav" style="color: white;">
+        <router-link to="/"><span class="mr-2">Home</span></router-link>
+        <span class="mr-2"> | </span>
+        <router-link to="/about"><span class="mr-2">About</span></router-link>
+      </div>
 
-const API_URL = 'http://localhost:8000'
-const auth = new AuthService()
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+      <v-btn v-if="!authenticated" @click="login()"
+        ><span class="mr-2" style="color: white;">Log In</span></v-btn
+      >
+
+      <v-btn v-if="authenticated" @click="privateMessage()"
+        ><span class="mr-2" style="color: white;">Call Private</span></v-btn
+      >
+
+      <v-btn v-if="authenticated" @click="logout()">
+        <span class="mr-2" style="color: white;">Log Out</span></v-btn
+      >
+      <br />
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
+</template>
+
+<script>
+import AuthService from "./auth/AuthService";
+import axios from "axios";
+
+const API_URL = "http://localhost:8000";
+const auth = new AuthService();
 
 export default {
-  name: 'app',
-  data () {
-    this.handleAuthentication()
-    this.authenticated = false
+  name: "App",
+  data() {
+    this.handleAuthentication();
+    this.authenticated = false;
 
-    auth.authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated
-    })
+    auth.authNotifier.on("authChange", authState => {
+      this.authenticated = authState.authenticated;
+    });
 
     return {
       authenticated: false,
-      message: ''
-    }
+      message: ""
+    };
   },
 
   methods: {
     // this method calls the AuthService login() method
-    login () {
-      auth.login()
+    login() {
+      auth.login();
     },
-    handleAuthentication () {
-      auth.handleAuthentication()
+    handleAuthentication() {
+      auth.handleAuthentication();
     },
-    logout () {
-      auth.logout()
+    logout() {
+      auth.logout();
     },
-    privateMessage () {
-      const url = `${API_URL}/api/private/`
-      return axios.get(url, {headers: {Authorization: `Bearer ${auth.getAuthToken()}`}}).then((response) => {
-        console.log(response.data)
-        this.message = response.data || ''
-      })
+    privateMessage() {
+      const url = `${API_URL}/api/private/`;
+      return axios
+        .get(url, {
+          headers: { Authorization: `Bearer ${auth.getAuthToken()}` }
+        })
+        .then(response => {
+          this.message = response.data || "";
+        });
     }
-  },
-}
+  }
+};
 </script>
-<style lang="stylus"></style>
+<style scoped>
+/* TODO: Have this apply to the html */
+#nav > a {
+  color: white;
+}
+</style>

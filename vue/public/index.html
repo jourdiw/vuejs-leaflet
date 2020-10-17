@@ -1,35 +1,36 @@
-<!DOCTYPE html><html lang=en>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge">
-        <meta name=viewport content="width=device-width,initial-scale=1">
-        <link rel=icon href=/favicon.ico><title>my-app</title>
-        <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-        <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Material+Icons">
-        <link href=/css/chunk-vendors.79ec6f1d.css rel=preload as=style>
-        <link href=/js/app.7d70a5f7.js rel=preload as=script>
-        <link href=/js/chunk-vendors.dfc7c664.js rel=preload as=script>
-        <link href=/css/chunk-vendors.79ec6f1d.css rel=stylesheet>
-        <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width,initial-scale=1.0" name="viewport">
+        <link rel="icon" href="favicon.ico">
+        <title>vue-leaflet</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css" rel="stylesheet">
+        <!-- TODO: Move the vuetify and leaflet css to the imports so that Webpack will be used -->
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-            crossorigin="" />
+            crossorigin="" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <style>
+            /* TODO: Put this code into the components */
+            #nav > a {
+                color: white;
+            }
+            #mapid {
+                height: 400px;
+                width: 600px;
+            }
+        </style>
     </head>
-    <body>    
-        <div id="app"></div>    
-        <div id="toto">
-            {{ hello }}
+    <body>
+        <noscript>
+            <strong>We're sorry but vue-leaflet doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+        <div id="app"></div>
         </div>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-        <!-- 2. add an address from { id, road, complement, zipCode, city, country -->
-        <!-- 3. add another address to -->
-        <!-- 4. add conditional fields -->
-        <!-- 5. add a form to edit the address -->
-        <!-- 6. allow dynamic adding / update / delete -->
-        <!-- 7. maybe refactor somewhere ?! -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script> -->
-        <script type="text/javascript" src="./src/main.js"></script>    
+        <!-- built files will be auto injected -->
     </body>
 </html>

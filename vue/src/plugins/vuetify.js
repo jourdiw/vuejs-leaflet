@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
-import "vuetify/src/stylus/app.styl";
+import "vuetify/dist/vuetify.min.css";
 
 const vuetifyOptions = {
   iconfont: "md"
@@ -8,7 +8,4 @@ const vuetifyOptions = {
 
 Vue.use(Vuetify);
 
-new Vue({
-  el: "#mainApp",
-  vuetify: new Vuetify(vuetifyOptions)
-});
+export default new Vuetify(vuetifyOptions);

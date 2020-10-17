@@ -1,13 +1,18 @@
 module.exports = {
-  css: {
-    modules: true
-  },
-
+  transpileDependencies: ["vuetify"],
   publicPath: "/",
   outputDir: undefined,
   assetsDir: undefined,
   runtimeCompiler: true,
   productionSourceMap: undefined,
   parallel: undefined,
-  lintOnSave: undefined
+  lintOnSave: undefined,
+  devServer: {
+    proxy: {
+      "/": {
+        target: "http://localhost:8000",
+        ws: false
+      }
+    }
+  }
 };

@@ -1,6 +1,7 @@
-.success {
-    background-color: #914caf !important;
+#nav > a {
+  color: white;
 }
-.mcaddress {
-    padding: 50px;
+#mapid {
+  height: 400px;
+  width: 600px;
 }

@@ -1,30 +1,31 @@
 <template>
   <div>
+    <!-- <div id="mapid" style="height: 400px;width: 600px;"></div> -->
     <div id="mapid"></div>
   </div>
 </template>
 <script>
 import L from "leaflet";
-// import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
-// import "leaflet/dist/leaflet.css";
+// TODO: Have webpack be able to search the css in node_module
+import "leaflet/dist/leaflet.css";
 import NomanatimResult from "./Coordinates.vue";
 import axios from "axios";
 
 export default {
-  name: "mymap",
+  name: "Map",
   data() {
     return {
       results: []
     };
   },
   mounted() {
-    var mymap = L.map("mapid").setView([51.505, -0.09], 13);
+    var map = L.map("mapid").setView([51.505, -0.09], 13);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mymap);
+    }).addTo(map);
     L.marker([51.5, -0.09])
-      .addTo(mymap)
+      .addTo(map)
       .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
       .openPopup();
   },
@@ -34,6 +35,8 @@ export default {
 };
 </script>
 <style>
+/* TODO: Activate this part of the vue 
+         and remove the inline */
 #mapid {
   height: 400px;
   width: 600px;
