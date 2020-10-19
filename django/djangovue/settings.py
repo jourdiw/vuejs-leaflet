@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config.SECRET_KEY_SETTINGS
+SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 }
 
@@ -138,16 +138,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH0_DOMAIN = 'jourdiw-vue-django.eu.auth0.com'
-API_IDENTIFIER = 'https://jourdiw-vue-django'
+AUTH0_DOMAIN = config.AUTH0_DOMAIN
+API_IDENTIFIER = config.API_IDENTIFIER
 PUBLIC_KEY = None
 JWT_ISSUER = None
 
 if AUTH0_DOMAIN:
-    jsonurl = request.urlopen('https://' + AUTH0_DOMAIN + '/.well-known/jwks.json')
+    jsonurl = request.urlopen(
+        'https://' + AUTH0_DOMAIN + '/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read().decode('utf-8'))
-    cert = '-----BEGIN CERTIFICATE-----\n' + jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
-    certificate = load_pem_x509_certificate(cert.encode('utf-8'), default_backend())
+    cert = '-----BEGIN CERTIFICATE-----\n' + \
+        jwks['keys'][0]['x5c'][0] + '\n-----END CERTIFICATE-----'
+    certificate = load_pem_x509_certificate(
+        cert.encode('utf-8'), default_backend())
     PUBLIC_KEY = certificate.public_key()
     JWT_ISSUER = 'https://' + AUTH0_DOMAIN + '/'
 
