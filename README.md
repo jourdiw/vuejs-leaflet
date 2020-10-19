@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ### Add auth0 domain and API Identifier to config.py
 
-#### From the tutorial [BOOP](https://auth0.com/blog/building-modern-applications-with-django-and-vuejs/)
+#### From the tutorial [Building Modern Applications with Django and Vue.js](https://auth0.com/blog/building-modern-applications-with-django-and-vuejs/)
 
 **Creating an Auth0 API**
 
