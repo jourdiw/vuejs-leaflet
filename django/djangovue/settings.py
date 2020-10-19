@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import config as config
+from . import config as config
 import json
 from six.moves.urllib import request
 from cryptography.x509 import load_pem_x509_certificate

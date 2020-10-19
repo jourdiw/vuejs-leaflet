@@ -1,3 +1,5 @@
+# Sensitive information used in backend
+
 SECRET_KEY = 'SECRET_KEY'
 AUTH0_DOMAIN = 'AUTH0_DOMAIN'
 API_IDENTIFIER = 'API_IDENTIFIER'
