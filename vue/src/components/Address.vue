@@ -34,3 +34,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.address > button {
+  margin-top: 1rem;
+}
+</style>

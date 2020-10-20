@@ -91,8 +91,9 @@ export default {
 };
 </script>
 <style scoped>
-/* TODO: Have this apply to the html */
 #nav > a {
   color: white;
+  padding: 0 1.5em;
+  text-decoration: none;
 }
 </style>

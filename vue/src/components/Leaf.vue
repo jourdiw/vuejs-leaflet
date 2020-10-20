@@ -4,11 +4,15 @@
   </div>
 </template>
 <script>
-import L from "leaflet";
+// import L from "leaflet";
 // TODO: Have webpack be able to search the css in node_module
+// import "leaflet/dist/leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import NomanatimResult from "./Coordinates.vue";
 import axios from "axios";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
 export default {
   name: "Map",
@@ -19,6 +23,11 @@ export default {
   },
   mounted() {
     var map = L.map("mapid").setView([51.505, -0.09], 13);
+    let DefaultIcon = L.icon({
+      iconUrl: icon,
+      shadowUrl: iconShadow
+    });
+    L.Marker.prototype.options.icon = DefaultIcon;
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -34,5 +43,8 @@ export default {
 };
 </script>
 <style>
-/* TODO: Add the css for this component from index.html */
+#mapid {
+  height: 500px;
+  width: 100%;
+}
 </style>

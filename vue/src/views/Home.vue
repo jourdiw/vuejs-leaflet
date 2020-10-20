@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import Address from "../components/Address";
-import AddressForm from "../components/AddressForm";
-import Map from "../components/Leaf";
+import Address from "@/components/Address";
+import AddressForm from "@/components/AddressForm";
+import Map from "@/components/Leaf";
 import axios from "axios";
 
 var from = {
@@ -154,3 +154,16 @@ export default {
   }
 };
 </script>
+<style scoped>
+.address-card > div > .v-icon {
+  padding-right: 0.5rem;
+}
+
+#address-to > div > .v-icon {
+  color: green;
+}
+
+#address-from > div > .v-icon {
+  color: red;
+}
+</style>
