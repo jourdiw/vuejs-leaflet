@@ -113,8 +113,8 @@ npm run serve
 
 - [ ] Add unit testing to the front
 - [ ] Incorporate Nomanatim API to calculate routes and new addresses entered by the user
-- [ ] Correct webpack's loading of css files from node_module
-- [ ] Correct bug that style included in a component is not affected upon the html in that component, i.e. #mapid css in component/Leaf.vue
+- [x] Correct webpack's loading of css files from node_module
+- [x] Correct bug that style included in a component is not affected upon the html in that component, i.e. #mapid css in component/Leaf.vue
 - [ ] Replace Address data loaded in the view Home.vue with calls to the backend to recuperate the data
 
 **BACK**
