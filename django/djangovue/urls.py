@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from catalog import views
+from django.contrib import admin
+from django.urls import path, include
 
 
 urlpatterns = [
-    url(r'^api/public/', views.public),
-    url(r'^api/private/', views.private)
+    path('api/', include('catalog.urls')),
+    path('admin/', admin.site.urls),
 ]

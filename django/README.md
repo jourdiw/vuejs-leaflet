@@ -71,6 +71,7 @@ API_IDENTIFIER = '<YOUR_API_IDENTIFIER>'
 ```
 python manage.py makemigrations
 python manage.py migrate
+python manage.py loaddata fixtures/initial_data.json
 ```
 
 ### Launch server

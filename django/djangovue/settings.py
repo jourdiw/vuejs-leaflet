@@ -171,3 +171,7 @@ JWT_AUTH = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
 )
+
+FIXTURE_DIRS = (
+    '../fixtures/',
+)

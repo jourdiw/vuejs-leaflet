@@ -73,6 +73,7 @@ API_IDENTIFIER = '<YOUR_API_IDENTIFIER>'
 ```
 python manage.py makemigrations
 python manage.py migrate
+python manage.py loaddata fixtures/initial_data.json
 ```
 
 ### Launch server
@@ -120,6 +121,6 @@ npm run serve
 **BACK**
 
 - [ ] Add unit testing to the back
-- [ ] Create a model for Address
-- [ ] Add a script to load data in the DB when created
-- [ ] Create API endpoint for Address
+- [x] Create a model for Address
+- [x] Add a script to load data in the DB when created
+- [x] Create API endpoint for Address

@@ -1,0 +1,1 @@
+[{"model": "catalog.address", "pk": 1, "fields": {"road": "Abbey Rd", "zip_code": "LA78 9009", "city": "london", "complement": null, "country": "England", "state": "Middleton"}}, {"model": "catalog.address", "pk": 2, "fields": {"road": "Partridge St", "zip_code": "MA39 4556", "city": "Manchester", "complement": "bis", "country": "england", "state": "Middletown"}}]
