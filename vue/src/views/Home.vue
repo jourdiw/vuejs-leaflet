@@ -58,79 +58,15 @@ import AddressForm from "@/components/AddressForm";
 import Map from "@/components/Leaf";
 import axios from "axios";
 
-var from = {
-  addressName: "from",
-  road: {
-    name: "Road",
-    value: "Abbey Rd"
-  },
-  zipCode: {
-    name: "Zip code",
-    value: "LA78 9009"
-  },
-  city: {
-    name: "City",
-    value: "london"
-  },
-  complement: {
-    name: "Complement",
-    value: ""
-  },
-
-  country: {
-    name: "Country",
-    value: "England"
-  },
-  state: {
-    name: "State",
-    value: "Middleton"
-  },
-  message: {
-    name: "Message",
-    value: "Starting message..."
-  }
-};
-
-var address2 = {
-  addressName: "to",
-  road: {
-    name: "Road",
-    value: "Partridge St"
-  },
-  zipCode: {
-    name: "Zip code",
-    value: "MA39 4556"
-  },
-  city: {
-    name: "City",
-    value: "Manchester"
-  },
-  complement: {
-    name: "Complement",
-    value: "bis"
-  },
-  country: {
-    name: "Country",
-    value: "england"
-  },
-  state: {
-    name: "State",
-    value: "Middletown"
-  },
-  message: {
-    name: "Message",
-    value: "Another message..."
-  }
-};
+var backend = "http://localhost:8000/api/";
 
 export default {
   name: "Home",
   data() {
     return {
-      from: from,
-      to: address2,
-      addressToEdit: "",
-      results: null
+      from: null,
+      to: null,
+      addressToEdit: ""
     };
   },
   methods: {
@@ -139,20 +75,30 @@ export default {
     }
   },
   created() {
-    axios
-      .get("http://nominatim.openstreetmap.org/search/toulouse?format=json")
-      .then(response => {
-        this.results = response.data;
-      });
-    console.log(this.results);
+    axios.get(backend + "address/1").then(response => {
+      var to = response.data;
+      to["addressName"] = "to";
+      this.to = to;
+    });
+    axios.get(backend + "address/2").then(response => {
+      var from = response.data;
+      from["addressName"] = "from";
+      this.from = from;
+    });
   },
   components: {
     Address,
     AddressForm,
     Map
-    // TODO: NomanatimResult
   }
 };
+
+// TODO: Add NomanatimResult to components: {} and add the fetching of results from openstreetmap
+//   axios
+//     .get("http://nominatim.openstreetmap.org/search/toulouse?format=json")
+//     .then(response => {
+//       this.results = response.data;
+//     });
 </script>
 <style scoped>
 .address-card > div > .v-icon {

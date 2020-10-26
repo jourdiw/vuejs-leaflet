@@ -5,28 +5,28 @@
       <div class="address">
         <ul>
           <li>
-            {{ address.road.name }}:
-            <input v-model="address.road.value" />
+            Road:
+            <input v-model="address.road" />
           </li>
           <li>
-            {{ address.zipCode.name }}:
-            <input v-model="address.zipCode.value" />
+            Complement:
+            <input v-model="address.complement" />
           </li>
           <li>
-            {{ address.city.name }}:
-            <input v-model="address.city.value" />
+            City:
+            <input v-model="address.city" />
           </li>
           <li>
-            {{ address.complement.name }}:
-            <input v-model="address.complement.value" />
+            State:
+            <input v-model="address.state" />
           </li>
           <li>
-            {{ address.country.name }}:
-            <input v-model="address.country.value" />
+            Zip Code:
+            <input v-model="address.zip_code" />
           </li>
           <li>
-            {{ address.state.name }}:
-            <input v-model="address.state.value" />
+            Country:
+            <input v-model="address.country" />
           </li>
         </ul>
         <v-btn v-on:click="select">SUBMIT</v-btn>
@@ -54,4 +54,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+.address > button {
+  margin-top: 1rem;
+}
+</style>

@@ -4,9 +4,6 @@
   </div>
 </template>
 <script>
-// import L from "leaflet";
-// TODO: Have webpack be able to search the css in node_module
-// import "leaflet/dist/leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import NomanatimResult from "./Coordinates.vue";
